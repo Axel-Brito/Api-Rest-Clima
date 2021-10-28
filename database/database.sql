@@ -1,4 +1,4 @@
-CREATE DATABASE firtsapi;
+CREATE DATABASE firstapi;
 
 CREATE TABLE users(
     id SERIAL PRIMARY KEY,
