@@ -1,13 +1,16 @@
-var XLSX = require("xlsx");
+const XLSX = require('xlsx');
 
-const ExcelaJSON = () => {
-    const excel = XLSX.readFile(
-        "C:\\Users\\crist\\Documents\\GitHub\\Api-Rest-Clima\\Excels\\Arica_TMax_1950_2005.xls"
-    );
-    var nombreHoja = excel.SheetNames; // regresa un array
-    let datos = XLSX.utils.sheet_to_json(excel.Sheets[nombreHoja[0]]);
-    console.log(datos);
 
-};
+function leerExcel(ruta){
+    const workbook = XLSX.readFile(ruta);
+    const workbookSheets = workbook.SheetNames;
+    const sheet = workbookSheets[0];
+    const dataExcel = XLSX.utils.sheet_to_json(workbook.Sheets[sheet]);
 
-ExcelaJSON();
+    console.log(dataExcel);
+
+}
+
+
+
+leerExcel('C:\\Users\\crist\\Documents\\GitHub\\Api-Rest-Clima\\Excels\\Antofagasta_RR_1950_2005.xls');
