@@ -11,13 +11,29 @@ app.use(express.urlencoded({extended: false}));
 app.use(require('./routes/index'));
 
 // web scraping
-/*async function init(){
+async function Scrapping(){
     const $ = await request({
-        uri: 'http://quotes.toscrape.com/',
+        uri: 'https://climatologia.meteochile.gob.cl/application/diario/boletinClimatologicoDiario/actual',
         transform: body => cheerio.load(body)
     });
     
-    const websiteTitle = $('title');
+    const prueba = $(".table.table-bordered").find('tr').map((i,ele) =>({
+        estacion: $(ele).find('td:nth-of-type(1)').text().trim(),
+        valorTmin: $(ele).find('td:nth-of-type(2)').text().trim(),
+        horaTmin: $(ele).find('td:nth-of-type(3)').text().trim(),
+        valorTmax: $(ele).find(`td:nth-of-type(4)`).text().trim(),
+        horaTmax: $(ele).find(`td:nth-of-type(5)`).text().trim(),
+        'diacompleto': $(ele).find(`td:nth-of-type(6)`).text().trim(),
+        alafecha: $(ele).find(`td:nth-of-type(7)`).text().trim(),
+        añopasado: $(ele).find(`td:nth-of-type(8)`).text().trim(),
+        normalfecha: $(ele).find(`td:nth-of-type(9)`).text().trim(),
+        defsup: $(ele).find(`td:nth-of-type(10)`).text().trim(),
+        normalanual: $(ele).find(`td:nth-of-type(11)`).text().trim(),
+    })).get();
+    console.log(prueba)
+    return(prueba);
+    
+    /*const websiteTitle = $('title');
     console.log(websiteTitle.html());
 
     const websiteHeading = $('h1');
@@ -48,7 +64,7 @@ app.use(require('./routes/index'));
     })}*/
 
 
-init();
+}Scrapping();
 
 app.listen(3000);
 console.log('Server on port 3000');
