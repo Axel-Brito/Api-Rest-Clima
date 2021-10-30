@@ -4,6 +4,7 @@ import bcryptjs from "bcryptjs";
 //Funcion para crear un usuario
 export const createUser = async (req, res) => {
   const { nombre, correo, password } = req.body;
+  console.log(nombre, correo, password);
   try {
     //Encriptar la contraseña
     const saltos = bcryptjs.genSaltSync();

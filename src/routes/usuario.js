@@ -23,7 +23,7 @@ router.post(
     check("password", "La contraseña es obligatoria").isLength({ min: 5 }),
     check("correo", "El correo no es valido").isEmail(),
     check("correo").custom(isEmailValid),
-    validarCampos,
+    //validarCampos,
   ],
   createUser
 );
