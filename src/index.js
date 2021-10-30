@@ -5,6 +5,7 @@ import morgan from "morgan";
 //Rutas
 import authRoutes from "./routes/auth";
 import usuarioRoutes from "./routes/usuario";
+import climaroutes from "./routes/climaroutes";
 
 //Scrapping
 import scrapping from "./controllers/scrapping";
@@ -14,9 +15,6 @@ dotenv.config();
 
 //const express = require('express');
 const app = express();
-
-
-
 
 //middlewares
 app.use(morgan("dev"))
@@ -28,9 +26,10 @@ app.use(cors());
 //rutas api
 app.use("/grupo-g/auth", authRoutes);
 app.use("/grupo-g/usuario", usuarioRoutes);
+app.use("/grupo-g", climaroutes);
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4321;
 
 app.listen(PORT,() => {
     try {

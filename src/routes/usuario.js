@@ -20,10 +20,10 @@ router.post(
   "/create",
   [
     check("nombre", "El nombre es obligatorio").not().isEmpty(),
-    check("password", "La contraseña es obligatoria").isLength({ min: 5 }),
     check("correo", "El correo no es valido").isEmail(),
     check("correo").custom(isEmailValid),
-    //validarCampos,
+    check("password", "La contraseña es obligatoria").isLength({ min: 5 }),
+    validarCampos
   ],
   createUser
 );
