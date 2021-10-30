@@ -2,6 +2,8 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import morgan from "morgan";
+
+
 //Rutas
 import authRoutes from "./routes/auth";
 import usuarioRoutes from "./routes/usuario";
@@ -10,10 +12,15 @@ import climaroutes from "./routes/climaroutes";
 //Scrapping
 import scrapping from "./controllers/scrapping";
 
+/*automatizacion scrapping
+const time = 6000;
+setInterval(()=>{
+    scrapping();
+}, time);*/
+
 //variables .env
 dotenv.config();
 
-//const express = require('express');
 const app = express();
 
 //middlewares

@@ -1,4 +1,3 @@
-
 import Pool from "./conexion_db";
 import zonaLocal from "../datos-act/fecha";
 
