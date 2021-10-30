@@ -13,4 +13,4 @@ function leerExcel(ruta){
 
 
 
-leerExcel('C:\\Users\\crist\\Documents\\GitHub\\Api-Rest-Clima\\Excels\\Antofagasta_RR_1950_2005.xls');
+leerExcel('Excels/Arica_RR_1950_2005 (1).xls');
