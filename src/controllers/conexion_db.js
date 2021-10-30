@@ -1,18 +1,12 @@
-const { Pool } = require('pg');
+import pg from "pg";
 
-const pool = new Pool({
+
+const pool = new pg.Pool({
     host: 'localhost',
-    user: 'postgres',
+    user: 'grupo_x',
     password:'admin',
-    database: 'firstapi',
-    port: '5432'
+    database: 'apiclima',
+    port: '4321'
 });
 
-const getUsers = async (req,res) => {
-    const response = await pool.query('SELECT * FROM users');
-    res.status(200).json(response.rows);
-};
-
-module.exports = {
-    getUsers
-};
+export default pool;
