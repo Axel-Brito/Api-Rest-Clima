@@ -1,5 +1,5 @@
 import bcryptjs from "bcryptjs";
-import generateJwt from "../helpers/generate-jwt.js";
+import generateJwt from "../datos-act/generar-jwt";
 import Pool from "../controllers/conexion_db";
 
 //Funcion sincronica para el login -> POST

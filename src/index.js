@@ -1,9 +1,10 @@
+import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import morgan from "morgan";
-import express from "express";
 
-const express = require('express');
+
+//const express = require('express');
 const app = express();
 
 //Rutas
@@ -27,7 +28,7 @@ app.use(cors());
 
 
 //routes
-app.use(require('./routes/index'));
+//app.use(require('./routes/index'));
 
 //rutas api
 app.use("/grupo-x/auth", authRoutes);
