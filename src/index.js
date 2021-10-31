@@ -12,8 +12,8 @@ import climaroutes from "./routes/climaroutes";
 //Scrapping
 import scrapping from "./controllers/scrapping";
 
-/*automatizacion scrapping
-const time = 6000;
+//automatizacion scrapping
+/*const time = 6000;
 setInterval(()=>{
     scrapping();
 }, time);*/

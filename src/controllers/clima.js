@@ -4,13 +4,13 @@ import zonaLocal from "../datos-act/fecha";
 
 export const getestation= async (req,res) =>{
     try{
-        const consulta = await Pool.query("SELECT * FROM estaciones LIMIT 21");
+        const consultabd = await Pool.query("SELECT * FROM estaciones LIMIT 21");
 
-        if(consulta.rowCount !=0){
+        if(consultabd.rowCount !=0){
             res.status(200).json({
                 status: "200",
                 tipoMIME: "application/json",
-                data: consulta.rows,
+                data: consultabd.rows,
             });
         }
     } catch(error){
@@ -27,9 +27,9 @@ export const getestation= async (req,res) =>{
 export const getestationID= async (req,res) =>{
     const {id} = req.params;
     try{
-        const consulta = await Pool.query("SELECT * FROM estaciones WHERE id=$1" , [id]);
+        const consultabd = await Pool.query("SELECT * FROM estaciones WHERE id=$1",[id]);
 
-        const clima = consulta.rows[0];
+        const clima = consultabd.rows[0];
         if(clima){
             res.status(200).json({
                 status: "200",
@@ -38,6 +38,29 @@ export const getestationID= async (req,res) =>{
             });
         }
     } catch(error){
+        console.log(error)
+        res.status(400).json({
+            fecha: zonaLocal(),
+            mensaje: "error",
+            error,
+        });
+    }
+};
+
+export const getdatesxname = async (req,res) => {
+    const {estacion} = req.params;
+    try{
+        const consultabd = await Pool.query("SELECT * FROM estaciones WHERE estacion=$1" ,[estacion]);
+        
+        const clima = consultabd.rows[0];
+        if(clima){
+            res.status(200).json({
+                status: "200",
+                tipoMIME: "application/json",
+                clima,
+            });
+        }
+    }catch(error){
         console.log(error)
         res.status(400).json({
             fecha: zonaLocal(),
