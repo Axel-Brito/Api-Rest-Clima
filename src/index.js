@@ -36,7 +36,7 @@ app.use("/grupo-g/usuario", usuarioRoutes);
 app.use("/grupo-g", climaroutes);
 
 
-const PORT = process.env.PORT || 4321;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT,() => {
     try {
